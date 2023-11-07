@@ -17,4 +17,17 @@ public interface MyDao1 {
         WHERE userInfoId = #{id};
         """)
     List<Map<String, Object>> inquery(Integer id);
+
+
+    @Select("""
+        SELECT boardId,
+            writeTitle,
+            description,
+            userName,
+            writeDate
+        FROM pracdb1.board b JOIN pracdb1.userinfo u ON b.userInfoId = u.userInfoId
+            JOIN pracdb1.boardcategory bc ON bc.CategoryId = b.CategoryId
+            ORDER BY boardId DESC
+        """)
+    List<Map<String, Object>> writelist(boardDto dto);
 }

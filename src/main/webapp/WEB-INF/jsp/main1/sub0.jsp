@@ -14,5 +14,9 @@
 <form action="/main1/sub1" method="post">
     <button>제출</button>
 </form>
+
+<form action="/main1/board" method="get">
+    <button>게시판으로 이동</button>
+</form>
 </body>
 </html>

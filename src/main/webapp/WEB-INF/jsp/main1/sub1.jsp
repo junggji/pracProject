@@ -16,9 +16,9 @@
 <table>
         <C:forEach items="${userInfo}" var="user">
             <tr>
-                <td>${user.loginId}</td>
-                <td>${user.loginPassword}</td>
-                <td>${user.userName}</td>
+                <td>유저 아이디${user.loginId}</td>
+                <td>유저 비밀번호${user.loginPassword}</td>
+                <td>유저 이름${user.userName}</td>
             </tr>
         </C:forEach>
 </table>

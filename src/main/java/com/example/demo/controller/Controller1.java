@@ -32,6 +32,12 @@ public class Controller1 {
         List<Map<String, Object>> userinfo = dao.inquery(id);
 
         model.addAttribute("userInfo", userinfo);
+    }
 
+    @GetMapping("board")
+    public void method1(boardDto dto, Model model) {
+        List<Map<String, Object>> list1 = dao.writelist(dto);
+
+        model.addAttribute("boardlist", list1);
     }
 }
