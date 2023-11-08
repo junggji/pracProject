@@ -4,6 +4,7 @@ import com.example.demo.domain.boardDto;
 import com.example.demo.domain.userInfoDto;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 import java.util.Map;
@@ -30,4 +31,27 @@ public interface MyDao1 {
             ORDER BY boardId DESC
         """)
     List<Map<String, Object>> writelist(boardDto dto);
+
+    @Select("""
+        SELECT boardId,
+            writeTitle,
+            description,
+            userName,
+            writeDate
+        FROM pracdb1.board b JOIN pracdb1.userinfo u ON b.userInfoId = u.userInfoId
+            JOIN pracdb1.boardcategory bc ON bc.CategoryId = b.CategoryId
+            ORDER BY boardId DESC
+        """)
+    boardDto writePagemethod(boardDto dto);
+
+
+    @Update("""
+        INSERT INTO pracdb1.board (writeTitle, CategoryId, userInfoId, writeContents)
+        VALUES (#{writeTitle},
+            #{categoryId},
+            #{userInfoId},
+            #{writeContents})
+        """)
+    int insert(boardDto dto);
+
 }

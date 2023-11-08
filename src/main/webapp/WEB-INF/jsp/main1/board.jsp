@@ -105,5 +105,11 @@
             </c:forEach>
         </table>
     </div>
+
+    <form action="/main1/writePage" method="get">
+    <div>
+        <button>글쓰기</button>
+    </div>
+    </form>
 </body>
 </html>

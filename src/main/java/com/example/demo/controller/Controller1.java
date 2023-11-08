@@ -40,4 +40,23 @@ public class Controller1 {
 
         model.addAttribute("boardlist", list1);
     }
+
+    @GetMapping("writePage")
+    public void method3() {
+//        boardDto boardData = dao.writePagemethod(dto);
+//
+//        model.addAttribute("boardData", boardData);
+
+    }
+
+    @PostMapping("writeDataPage")
+    public void method2(boardDto dto){
+        int rows = dao.insert(dto);
+
+        if (rows == 1) {
+            System.out.println("잘됨");
+        } else {
+            System.out.println("잘못됨");
+        }
+    }
 }
